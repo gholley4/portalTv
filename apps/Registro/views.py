@@ -1,6 +1,8 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from .models import Pack
 from .forms import PackForm
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 # Create your views here.
 
@@ -37,3 +39,23 @@ def editar_pack(request, pack_id):
             instancia=form.save(commit=False)
             instancia.save()
     return render(request, "Registro/editar_pack.html", {'form': form})
+
+class PackCreate(CreateView):
+    model = Pack
+    form_class = PackForm
+    template_name = 'Registro/pack_form.html'
+    success_url = reverse_lazy("listar_packs")    
+
+class PackList(ListView):
+    model = Pack
+    template_name = 'Registro/list_packs.html'
+
+class PackUpdate(ListView):
+    model = Pack
+    template_name = 'Registro/pack_form.html'
+    success_url = reverse_lazy('list_packs')
+
+class PackDelete(ListView):
+    model = Pack
+    template_name = 'Registro/pack_delete.html'
+    success_url = reverse_lazy('list_packs')

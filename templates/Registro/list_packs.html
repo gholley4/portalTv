@@ -1,0 +1,22 @@
+
+
+{% block titulo_principal %} CRUD: Select * {% endblock %}
+
+{% block content %}
+    {% if object_list %}
+        {% for pack in object_list %}
+            <p>Nombre: {{ pack.nombre }}</p>
+            <p>Semestres: {{ pack.semestres }}</p>
+            <p>Mensualidad ${{ pack.mensualidad }}</p>           
+            <td>
+                <a class="btn btn-primary" href="{% url 'editar_pack' pack.id %}">Editar</a>
+                <a class="btn btn-danger" href="{% url 'borrar_pack' pack.id %}">Eliminar</a>
+            </td>           
+            <br>
+        {% endfor %}
+        
+        {% else %}
+        <h1>No hay registros de packs</h1>
+        {% endif %}
+
+{% endblock %}
