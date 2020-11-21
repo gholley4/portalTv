@@ -1,0 +1,75 @@
+{% extends 'Usuario/base/base.html' %} 
+<!-- home.html --> 
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+
+{% block content %} 
+    {% if user.is_authenticated %}
+    <p class="login">Sesion iniciada como :{{user.first_name}} {{user.last_name}}</p>
+    <p>Tu email es : {{user.email}}</p>
+    <br><br>
+    {% endif %}
+<!-- CARRUSEL -->
+    <div class="container">
+        <div id="carouselFadeExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="/static/images/c1.jpg" data-src="holder.js/900x400?theme=social" alt="900x400"
+                        style="width: 900px; height: 400px;" data-holder-rendered="true">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="/static/images/c2.jpg" data-src="holder.js/900x400?theme=industrial"
+                        alt="900x400" style="width: 900px; height: 400px;" data-holder-rendered="true">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselFadeExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselFadeExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- CARTAS -->
+    <header class="header-cartas center-xs">
+        <h1 id="mas-vendidos">
+            PACKS MAS VENDIDOS
+        </h1>
+        </header>
+        <div class="card-group">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">ORO HD</h5>
+                    <p class="card-text">199 CANALES PREMIUM INSTALACION GRATUITA - $29.999</p>
+                    {% if user.is_authenticated %}
+                        <a href="subscribir_cliente" class="btn btn-primary"
+                        >CONTRATALO AHORA</a
+                        >
+                    {% else %}
+                        <a class="btn btn-primary" href="{% url 'login' %}">Inicia sesión para contratar</a>
+                    {% endif %}
+                    <p class="card-text"><small class="text-muted">Last updated 10 mins ago</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">PLATA HD</h5>
+                    <p class="card-text">92 CANALES SD Y 64 HD - $25990</p>
+                    {% if user.is_authenticated %}
+                        <a href="subscribir_cliente" class="btn btn-primary"
+                        >CONTRATALO AHORA</a
+                        >
+                    {% else %}
+                        <a class="btn btn-primary" href="{% url 'login' %}">Inicia sesión para contratar</a>
+                    {% endif %}
+                    <p class="card-text"><small class="text-muted">Last updated 10 mins ago</small></p>
+                </div>
+            </div>
+        </div> 
+
+    <img class="imagen" src="/static/images/collage.jpg" alt="">
+
+{% endblock content %}
