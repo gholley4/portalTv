@@ -1,13 +1,15 @@
 {% extends 'Usuario/base/base.html' %} 
 
 {% block content %}
-    <h1>Agregar USUARIO</h1>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <h1>Registro</h1>
     
     <div class="content container">
     <form method="POST">
         {% csrf_token %} {{ form.as_p }}
-        <button type="submit">GRABAR</button>
+        <button type="submit" name="register-submit" id="register-submit" >GRABAR </button>
     </form>
     </div>
-
 {% endblock %}

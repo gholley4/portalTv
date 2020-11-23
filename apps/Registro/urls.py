@@ -8,7 +8,7 @@ urlpatterns = [
     path('agregar_pack', views.agregar_pack, name="agregar_pack"),
     path('editar_pack/<int:carrera_id>', views.editar_pack, name="editar_pack"),
     path('borrar_pack/<int:carrera_id>', views.borrar_pack, name="borrar_pack"),
-    path('add_pack', views.PackCreate.as_view(), name="add_pack"),
+    path('pack_form', views.PackCreate.as_view(), name="pack_form"),
 
 ]
 

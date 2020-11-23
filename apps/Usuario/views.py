@@ -10,9 +10,9 @@ from .forms import RegistroForm
 
 class RegistroUsuario(CreateView):
     model = User
-    template_name = "Usuario/registrar.html"
+    template_name = "Usuario/registrar_usuario.html"
     form_class = RegistroForm
-    succes_url = reverse_lazy('list_user')
+    success_url = reverse_lazy('list_user')
 
 class UserList(ListView):
     model = User

@@ -5,7 +5,7 @@
 
 {% block content %} 
     {% if user.is_authenticated %}
-    <p class="login">Sesion iniciada como :{{user.first_name}} {{user.last_name}}</p>
+    <p class="login">Bienvenido {{user.first_name}} {{user.last_name}}</p>
     <p>Tu email es : {{user.email}}</p>
     <br><br>
     {% endif %}
@@ -45,7 +45,7 @@
                     <h5 class="card-title">ORO HD</h5>
                     <p class="card-text">199 CANALES PREMIUM INSTALACION GRATUITA - $29.999</p>
                     {% if user.is_authenticated %}
-                        <a href="subscribir_cliente" class="btn btn-primary"
+                        <a href="pack_form" class="btn btn-primary"
                         >CONTRATALO AHORA</a
                         >
                     {% else %}
@@ -59,7 +59,7 @@
                     <h5 class="card-title">PLATA HD</h5>
                     <p class="card-text">92 CANALES SD Y 64 HD - $25990</p>
                     {% if user.is_authenticated %}
-                        <a href="subscribir_cliente" class="btn btn-primary"
+                        <a href="pack_form" class="btn btn-primary"
                         >CONTRATALO AHORA</a
                         >
                     {% else %}

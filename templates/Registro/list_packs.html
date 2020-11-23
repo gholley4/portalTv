@@ -1,22 +1,98 @@
+{% extends 'Usuario/base/base.html' %} {% load static %} {% block content %}
+<section class="txt">
+    <h1 style="font-size: 32px">PACKS DE TV</h1>
+    <h2 style="font-size: 32px">
+    TUS PROGRAMAS Y PELICULAS DE TELEVISION FAVORITOS
+    </h2>
+</section>
 
-
-{% block titulo_principal %} CRUD: Select * {% endblock %}
-
-{% block content %}
-    {% if object_list %}
-        {% for pack in object_list %}
-            <p>Nombre: {{ pack.nombre }}</p>
-            <p>Semestres: {{ pack.semestres }}</p>
-            <p>Mensualidad ${{ pack.mensualidad }}</p>           
-            <td>
-                <a class="btn btn-primary" href="{% url 'editar_pack' pack.id %}">Editar</a>
-                <a class="btn btn-danger" href="{% url 'borrar_pack' pack.id %}">Eliminar</a>
-            </td>           
-            <br>
-        {% endfor %}
-        
+<div class="card-group">
+    <div class="card">
+    <img src="/static/images/foto2.PNG" class="card-img-top image" alt="..." />
+        <div class="card-body">
+            <h5 class="card-title">PLATA HD</h5>
+            <p class="card-text">92 CANALES SD Y 64 HD - $25990</p>
+            {% if user.is_authenticated %}
+            <a href="pack_form" class="btn btn-primary">CONTRATALO AHORA</a>
+            {% else %}
+            <a class="btn btn-primary" href="{% url 'login' %}"
+            >Inicia sesión para contratar</a>
+            {% endif %}
+    </div>
+</div>
+    <div class="card">
+    <img src="/static/images/foto2.PNG" class="card-img-top image" alt="..." />
+    <div class="card-body">
+        <h5 class="card-title">PLATA 4K</h5>
+        <p class="card-text">156 CANALES + 1 CANAL 4K ULTRA HD - $29.990</p>
+        {% if user.is_authenticated %}
+        <a href="pack_form" class="btn btn-primary">CONTRATALO AHORA</a>
         {% else %}
-        <h1>No hay registros de packs</h1>
+        <a class="btn btn-primary" href="{% url 'login' %}"
+        >Inicia sesión para contratar</a>
         {% endif %}
+    </div>
+    </div>
+    <div class="card">
+    <img src="/static/images/foto1.PNG" class="card-img-top image" alt="..." />
+    <div class="card-body">
+        <h5 class="card-title">BRONCE HD</h5>
+        <p class="card-text">70 CANALES SD Y 30 HD - $20.000</p>
+        {% if user.is_authenticated %}
+        <a href="pack_form" class="btn btn-primary">CONTRATALO AHORA</a>
+        {% else %}
+        <a class="btn btn-primary" href="{% url 'login' %}"
+        >Inicia sesión para contratar</a>
+        {% endif %}
+    </div>
+    </div>
+</div>
 
-{% endblock %}
+<div class="card-group">
+    <div class="card">
+        <img src="/static/images/foto3.PNG" class="card-img-top image" alt="..." />
+        <div class="card-body">
+        <h5 class="card-title">ORO 4K</h5>
+        <p class="card-text">
+        200 CANALES + 1 CANAL 4K CON RESOLUCION ULTRA HD - $34.990
+        </p>
+        {% if user.is_authenticated %}
+        <a href="pack_form" class="btn btn-primary">CONTRATALO AHORA</a>
+        {% else %}
+        <a class="btn btn-primary" href="{% url 'login' %}"
+        >Inicia sesión para contratar</a>
+        {% endif %}
+    </div>
+</div>
+<div class="card">
+    <img src="/static/images/foto3.PNG" class="card-img-top image" alt="..." />
+    <div class="card-body">
+        <h5 class="card-title">ORO HD</h5>
+        <p class="card-text">
+        199 CANALES PREMIUM INSTALACION GRATUITA - $29.999
+        </p>
+        {% if user.is_authenticated %}
+        <a href="pack_form" class="btn btn-primary">CONTRATALO AHORA</a>
+        {% else %}
+        <a class="btn btn-primary" href="{% url 'login' %}"
+        >Inicia sesión para contratar</a>
+        {% endif %}
+    </div>
+</div>
+    <div class="card">
+    <img src="/static/images/foto1.PNG" class="card-img-top image" alt="..." />
+    <div class="card-body">
+        <h5 class="card-title">BRONCE 4K</h5>
+        <p class="card-text">
+        100 CANALES + 1 CANAL 4K CON RESOLUCION ULTRA HD - $24.990
+        </p>
+        {% if user.is_authenticated %}
+        <a href="pack_form" class="btn btn-primary">CONTRATALO AHORA</a>
+        {% else %}
+        <a class="btn btn-primary" href="{% url 'login' %}"
+        >Inicia sesión para contratar</a>
+        {% endif %}
+    </div>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,92 @@
+{% extends 'Usuario/base/base.html' %}
+{% block content %}
+<body>
+    
+    <div class="container center-xs">
+        <p style="font-weight: bold; font-size:2rem">Contrata tu pack</p>
+    </div>
+    <div class="container  center-xs">
+        <form id="formulario1" class="form" method="POST" enctype= "multipart/form-data">
+        {% csrf_token %}
+            {% csrf_token %}
+            <table class="table">
+                <tbody>
+                    <tr class="row">
+                        <td class="col-sm-3"> <label> Nombre completo: </label></td>
+                        <td class="col-sm-7"> <input type="text" name="name" class="form-control" id="txtNombre" placeholder="Ingrese su nombre" onkeydown="return alphaOnly(event)"></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"> <label> Rut: </label></td>
+                        <td class="col-sm-7"> <input type="text" name="rut" class="form-control" id="txtRut" oninput="checkRut(this)" placeholder="Ingrese su rut"></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"><label> Email: </label></td>
+                        <td class="col-sm-7"><input type="email" name="email" class="form-control" id="txtEmail" placeholder="Ingrese email"></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"> <label> Teléfono: </label> </td>
+                        <td class="col-sm-7"> <input type="tel" class="form-control" name="telefono" id="txtTelefono" onKeyPress="return soloNumeros(event)" placeholder="Ingrese Telefono" onkeydown="return isNumberKey(event)"> </td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"><label> Región: </label></td>
+                        <td class="col-sm-7"> <select id="regiones" name="region" class="form-control">
+                <option value=""> seleccione </option>
+                <option value="1"> Metropolitana </option>
+                <option value="2"> Coquimbo </option>
+                <option value="3"> Maule </option>
+                <option value="4"> Araucania </option>
+            </select>
+                        </td>
+                    </tr>
+
+                    <tr class="row">
+                        <td class="col-sm-3"><label> Fecha de nacimiento: </label></td>
+                        <td class="col-sm-7"><input type="date" class="form-control" name="bday" max="2000-12-31" min="1900-01-01"></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"><label> Pack a comprar: </label></td>
+                        <td class="col-sm-7"><select name="txtPack" id="Select" class="form-control">
+                    <option value=""> Seleccione Pack a comprar... </option>
+                    <option value="1"> ORO HD </option>
+                    <option value="2"> PLATA HD </option>
+                    <option value="3"> BRONCE HD </option>
+                    <option value="4"> ORO 4K </option>
+                    <option value="5"> PLATA 4K </option>
+                    <option value="6"> BRONCE 4K </option> 
+                    </select>
+                    
+                        </td>
+                    </tr>
+                    
+                </tbody>
+                
+            </table>
+            
+            <input type="submit" value="Enviar" id="validar" class="btn btn-success"> 
+            <br>
+            <!--{% csrf_token %}
+            {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.name}}">{{ field.label_tag }}</label><br>            
+                {{ field }}
+                <div class="bg-danger mt-1">{{ field.errors }}</div>
+            </div>
+            {% endfor %}
+
+
+            <input type="submit" value="Enviar" id="validar" class="btn btn-success">
+        </form>
+    </div>-->
+
+    <script src="static/js/subscripcion.js">
+    </script>
+    <script src="static/js/validador.js">
+    </script>
+    <script src="static/js/validarut.js">
+    </script>
+    <script src="static/js/validarNombre.js">
+    </script>
+    <script src="static/js/validarNumero.js">
+    </script>
+    </body>
+{% endblock content %} 
