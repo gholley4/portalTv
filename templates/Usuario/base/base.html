@@ -31,7 +31,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="list_packs">Packs de television</a>
                 </li>
-                
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'buscar_packs' %}">Buscar packs comprados</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
         {% if user.is_authenticated %}

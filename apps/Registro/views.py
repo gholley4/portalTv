@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from .models import Pack
 from .forms import PackForm
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.db.models import Q 
 
 # Create your views here.
 
@@ -59,3 +60,16 @@ class PackDelete(ListView):
     model = Pack
     template_name = 'Registro/pack_delete.html'
     success_url = reverse_lazy('list_packs')
+
+class BuscarPacksView(ListView):
+    model = Pack
+    template_name = 'Registro/buscar_packs.html'
+
+class SearchResultsView(ListView):
+    model = Pack
+    template_name = 'Registro/search_results.html'
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        object_list = Pack.objects.filter(
+            Q(nombre__icontains=query))
+        return object_list    

@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import SearchResultsView, BuscarPacksView
 
 urlpatterns = [
     
@@ -9,6 +10,9 @@ urlpatterns = [
     path('editar_pack/<int:carrera_id>', views.editar_pack, name="editar_pack"),
     path('borrar_pack/<int:carrera_id>', views.borrar_pack, name="borrar_pack"),
     path('pack_form', views.PackCreate.as_view(), name="pack_form"),
+    path('buscar/', BuscarPacksView.as_view(), name='buscar_packs'),
+    path('search/', SearchResultsView.as_view(), name= 'search_results'),
+
 
 ]
 

@@ -1,0 +1,16 @@
+{% extends 'Usuario/base/base.html' %}
+
+{% load static %}
+
+{% block title %}<h1>Search Results</h1>{% endblock title %}
+
+{% block content %} 
+<ul>
+    {% for pack in object_list %}
+    <li>
+        {{ pack.nombre }}     Nombre: {{ pack.nombre }}
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
