@@ -13,6 +13,10 @@ urlpatterns = [
     path('buscar/', BuscarPacksView.as_view(), name='buscar_packs'),
     path('search/', SearchResultsView.as_view(), name= 'search_results'),
 
+    # api
+    path('packs/', views.pack_collection, name='pack_collection'),
+    path('packs/<int:pk>/', views.pack_element, name='pack_element'),
+
 
 ]
 

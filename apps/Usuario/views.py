@@ -5,6 +5,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from .forms import RegistroForm
+from rest_framework import generics
+from .serializers import UsuarioSerializer
 
 # Create your views here.
 
@@ -17,3 +19,11 @@ class RegistroUsuario(CreateView):
 class UserList(ListView):
     model = User
     template_name = 'Usuario/list_user.html'
+
+class API_objects(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UsuarioSerializer
+
+class API_objects_details(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UsuarioSerializer    
