@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'social_django',
     'social.apps.django_app.default',
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +146,14 @@ STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static',
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+#PWA
+PWA_SERVICE_WORKER_PATH = (os.path.join(BASE_DIR, 'static/js', 'serviceworker.js'))
+PWA_APP_NAME = 'Proyecto PortalTv'
+PWA_APP_DESCRIPTION = 'PortalTv Web App DUOC UC'
+PWA_APP_THEME_COLOR = '#fff'
+PWA_APP_ICONS = [
+    {
+        'src': 'static/images/icons/asdf.png',
+        'sizes': '259x259'
+    }]
