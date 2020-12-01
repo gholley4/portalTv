@@ -1,7 +1,6 @@
-{% extends 'Usuario/base/base.html' %} 
+{% extends 'base.html' %}
+{% load static %} 
 <!-- home.html --> 
-
-
 
 {% block content %} 
     {% if user.is_authenticated %}
@@ -73,3 +72,5 @@
     <img class="imagen" src="/static/images/collage.jpg" alt="">
 
 {% endblock content %}
+
+
